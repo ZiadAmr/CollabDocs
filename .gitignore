@@ -1,3 +1,12 @@
-.env
+backend/.env
+backend/__pycache__/
 venv/
-__pycache__/
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+frontend/.env.local
+frontend/.env.*.local
+.DS_Store
+Thumbs.db
