@@ -17,6 +17,13 @@
 ```
 Untested, but on Linux you might be able to use `make dev-frontend` without `cd`
 
+# Testing
+## Backend
+
+```
+    fastapi dev
+```
+
 ## Requirements
 
 To update requirements after installing new dependencies `pip freeze > requirements.txt`
@@ -26,3 +33,4 @@ To update requirements after installing new dependencies `pip freeze > requireme
 - Define Database
 - Test `make migrate-create MSG="message"`
 - Test subsequent make commands
+- Security (Authentication)
