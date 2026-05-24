@@ -4,7 +4,7 @@ import jwt
 from jwt.exceptions import InvalidTokenError
 from pydantic import BaseModel
 
-import mySecrets
+import config
 import security
 
 class Token(BaseModel):
@@ -52,7 +52,7 @@ async def get_current_user(token: Annotated[str, Depends(security.oauth2_scheme)
         headers={"WWW-Authenticate": "Bearer"}
     )
     try:
-        payload = jwt.decode(token, mySecrets.SECRET_KEY, algorithms=[mySecrets.ALGORITHM])
+        payload = jwt.decode(token, config.SECRET_KEY, algorithms=[config.ALGORITHM])
         username = payload.get("sub")
         if username is None:
             raise credentials_exception

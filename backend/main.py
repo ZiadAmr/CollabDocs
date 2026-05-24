@@ -6,7 +6,7 @@ from datetime import timedelta
 
 import security
 import database
-import mySecrets
+import config
 app = FastAPI()
 
 origins = [
@@ -30,7 +30,7 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"}
         )
-    access_token_expires = timedelta(minutes=mySecrets.ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token_expires = timedelta(minutes=config.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = security.create_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires # The JWT specification says that there's a key sub, with the subject of the token. We use it to store users identification
     )
